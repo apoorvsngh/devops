@@ -30,3 +30,5 @@ resource "aws_security_group" "tf-instance-sg" {
     }
 }
 
+output "private-ip" { value = aws_instance.tf-instance.private_ip }
+
