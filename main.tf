@@ -17,3 +17,13 @@ resource "aws_instance" "tf-instance" {
                 EOF
 }
 
+resource "aws_security_group" "tf-instance-sg" {
+    name = terraform-instance-sg
+    ingress {
+        from_port = 8080
+        to_port = 8080
+        protocol = "tcp"
+        cidr_block = ["0.0.0.0/0"]
+    }
+}
+
