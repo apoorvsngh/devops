@@ -6,6 +6,6 @@ provider "aws" {
 
 resource "aws_instance" "tf-instance" {
     instance_type = "t2.micro"
-    ami = "ami-02ccb28830b645a41"
+    ami = "ami-0eb9463ef8c71ad92"
 }
 
