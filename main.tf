@@ -7,6 +7,7 @@ provider "aws" {
 resource "aws_instance" "tf-instance" {
     instance_type = "t2.micro"
     ami = "ami-0eb9463ef8c71ad92"
+    security_groups = ["${aws_security_group.tf-instance-sg.name}"]
     tags = {
         Name = "terraform-instance"
     }
@@ -15,16 +16,15 @@ resource "aws_instance" "tf-instance" {
                 echo "Hello World" > index.html
                 nohup busybox httpd -f -p 8080 &
                 EOF
-    vpc_security_group_ids = [aws_security_group.tf-instance-sg.id]
 }
 
 resource "aws_security_group" "tf-instance-sg" {
-    name = terraform-instance-sg
+    name = "terraform-instance-sg"
     ingress {
         from_port = 8080
         to_port = 8080
         protocol = "tcp"
-        cidr_block = ["0.0.0.0/0"]
+        cidr_blocks = ["0.0.0.0/0"]
     }
 }
 
