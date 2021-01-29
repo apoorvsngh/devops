@@ -15,6 +15,7 @@ resource "aws_instance" "tf-instance" {
                 echo "Hello World" > index.html
                 nohup busybox httpd -f -p 8080 &
                 EOF
+    vpc_security_group_ids = [aws_security_group.tf-instance-sg.id]
 }
 
 resource "aws_security_group" "tf-instance-sg" {
