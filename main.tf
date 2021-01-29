@@ -1,6 +1,7 @@
 provider "aws" {
-    region = "us-east-1"
+    region = "us-east-2"
     profile = "personal"
+#    shared_credentials_file = "/Users/apoorvsingh/Impo/credentials.csv"
 }
 
 resource "aws_instance" "tf-instance" {
