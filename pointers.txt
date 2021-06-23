@@ -1,0 +1,7 @@
+ES
+
+- Dedicated master node >= 3 (caught in apply)
+- logGroup should be created after ES log write policy or AccessPolicy for ES service to Cloudwatch
+- only 1 subnet required
+- Invalid instance type: t3.small.elasticsearch in some cases (This still I have to find why)
+- 
